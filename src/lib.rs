@@ -36,13 +36,26 @@ impl Renamer {
         files.into_iter().for_each(|v| {
             if let Ok(filename) = v {
                 if let Ok(file) = File::open(&filename) {
+                    let file_ext = filename
+                        .extension()
+                        .unwrap_or_default()
+                        .to_str()
+                        .unwrap_or_default();
+                    if file_ext != "ipa" {
+                        println!(
+                            "[{}] {} is not a ipa file",
+                            "skipped".yellow(),
+                            filename.display()
+                        );
+                        return;
+                    }
                     if let Err(e) = self.rename(&filename, file) {
                         eprintln!("Error: {:?}", e);
                     }
                 }
             }
         });
-        println!("{}", "Done!".green());
+        println!("[{}]", "Done!".green());
         Ok(())
     }
     fn rename(&self, path: &Path, file: File) -> anyhow::Result<()> {
@@ -70,7 +83,8 @@ impl Renamer {
         let new_path = Path::new(&self.out).join(new_name);
         fs::copy(path, &new_path)?;
         println!(
-            "Renamed {} to {}",
+            "[{}] {} to {}",
+            "renamed".green(),
             path.display().to_string().blue(),
             new_path.display().to_string().purple()
         );
