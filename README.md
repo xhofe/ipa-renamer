@@ -20,3 +20,13 @@ OPTIONS:
     -t, --temp <TEMP>    The temp dir for the extracted ipa file [default: ./temp]
     -V, --version        Print version information
 ```
+### Example
+```bash
+$ ./ipa_renamer ./ipa/*
+[skipped] ipa\16756024.plist is not a ipa file
+[renamed] ipa\DumpApp_1.0.4.ipa to renamed\DumpApp_1.0.4@com.dumpapp.ipa
+[renamed] ipa\Soulver_2.8.3APP喵砸壳.ipa to renamed\Soulver_2.8.3APP喵砸壳@com.acqualia.soulver-iPhone.ipa
+[renamed] ipa\aszs.ipa to renamed\aszs@rn.notes.best.ipa
+[renamed] ipa\thor134.ipa to renamed\thor134@com.pixelcyber.dake.thor.ipa
+[Done!]
+```
