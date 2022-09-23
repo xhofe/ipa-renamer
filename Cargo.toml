@@ -1,6 +1,6 @@
 [package]
 name = "ipa_renamer"
-version = "0.1.0"
+version = "0.0.1"
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
@@ -11,6 +11,10 @@ lto = true
 codegen-units = 1
 panic = "abort"
 strip = true
+
+[[bin]]
+name = "ipa_renamer"
+path = "src/main.rs"
 
 [dependencies]
 anyhow = "1.0.65"
