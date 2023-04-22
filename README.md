@@ -20,6 +20,24 @@ OPTIONS:
     -t, --temp <TEMP>    The temp dir for the extracted ipa file [default: ./temp]
     -V, --version        Print version information
 ```
+### Run from source
+
+#### Prerequisites
+
+- Rust: https://www.rust-lang.org/tools/install
+
+#### Run
+
+```bash
+$ cargo run
+```
+
+#### Build
+
+```bash
+$ cargo build
+```
+
 ### Example
 ```bash
 $ ./ipa_renamer './ipa/*'
