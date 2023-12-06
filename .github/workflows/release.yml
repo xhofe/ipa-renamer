@@ -78,13 +78,13 @@ jobs:
           use-cross: ${{ matrix.cross }}
           command: build
           args: --release --target=${{ matrix.target }}
-      - name: Compress binaries
-        continue-on-error: true
-        uses: svenstaro/upx-action@v2
-        with:
-          file: target/${{ matrix.target }}/release/ipa_renamer${{ matrix.file-ext }}
-          args: -q --best --lzma
-          strip: false
+      # - name: Compress binaries
+      #   continue-on-error: true
+      #   uses: svenstaro/upx-action@v2
+      #   with:
+      #     file: target/${{ matrix.target }}/release/ipa_renamer${{ matrix.file-ext }}
+      #     args: -q --best --lzma
+      #     strip: false
       - name: pack
         run: |
           mkdir -p release-${{ matrix.target }}
